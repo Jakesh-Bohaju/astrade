@@ -1,0 +1,15 @@
+{% load static %}
+<link href="{% static 'css/500error.css' %}" rel="stylesheet">
+
+<div class="full-screen">
+      <div class='container'>
+        <span class="error-num">5</span>
+        <div class='eye'></div>
+        <div class='eye'></div>
+
+        <p class="sub-text">Oh eyeballs! Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
+        <a href="{% url 'decorfront:index' %}">Go back</a>
+      </div>
+    </div>
+
+<script src="{% static 'js/500error.js' %}"></script>

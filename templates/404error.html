@@ -1,0 +1,37 @@
+{% load static %}
+<link href="{% static 'css/404error.css' %}" rel="stylesheet">
+
+<div class="wrap-404">
+  <div class="label">Error</div>
+  <div class="numbers">
+    <div class="number">
+      <div class="four"></div>
+    </div>
+    <div class="number">
+      <div class="zero"><span></span></div>
+    </div>
+    <div class="number">
+      <div class="four last"></div>
+    </div>
+  </div>
+    <div class="sleep-walker">
+    <div class="man">
+      <div class="head"></div>
+      <div class="torso">
+        <div class="arm-a"></div>
+        <div class="arm-b"></div>
+      </div>
+      <div class="legs">
+        <div class="leg-a"></div>
+        <div class="leg-b"></div>
+      </div>
+    </div>
+  </div>
+  <div class="text">
+    <p>Looks like you got lost... Or we trying to confuse you... </p>
+    <p>
+       Let us bring you at <a href="{% url 'decorfront:index' %}">home</a>.</p>
+      <p>Hyy!!! Don't be sad. If any problem email us....😊</p>
+  </div>
+
+</div>

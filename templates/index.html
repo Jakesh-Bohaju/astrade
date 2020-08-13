@@ -1,0 +1,275 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load my_filter %}
+
+{% block content %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+                <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+                <div class="carousel-inner" role="listbox">
+                    <!-- Slide 1 -->
+                    {% for banner in banners %}
+                        {% if forloop.counter == 1 %}
+                            <div class="carousel-item active" style="background-image: url('{{ banner.image.url }}');">
+                        {% else %}
+                            <div class="carousel-item" style="background-image: url('{{ banner.image.url }}');">
+                        {% endif %}
+                    {#                    <img src="{{ banner.image.url }}" alt="" class="container-fluid">#}
+                    <div class="carousel-container">
+                        <div class="carousel-content container">
+                            <h2 class="animate__animated animate__fadeInDown">{{ banner.title }}</h2>
+                            <p class="animate__animated animate__fadeInUp">{{ banner.caption }}</p>
+                        </div>
+                    </div>
+                    </div>
+
+                    {% endfor %}
+
+                    </div>
+
+                    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+
+
+
+    <main id="main">
+
+        <!-- ======= Clients Section ======= -->
+        <div id="clients" class="clients">
+            <div class="container" data-aos="zoom-in">
+
+                <div class="owl-carousel clients-carousel">
+                    {% for bl in brand_logo %}
+                        <img src="{{ bl.image.url }}" alt="">
+                    {% endfor %}
+                    <h2></h2>
+                </div>
+
+            </div>
+        </div><!-- End Clients Section -->
+
+        <!-- ======= welcome Section ======= -->
+        <section class="about-lists">
+            <div class="container">
+
+                <div class="row no-gutters">
+
+                    <div class="col-lg-8 col-md-8 col-sm-7  content-item" data-aos="fade-up">
+                        <h4>Welcome to {{ header.first.company_name }}</h4>
+                        <p>{{ welcome_message.first.message|linebreaksbr }}</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-5  content-item" data-aos="fade-in">
+                        <div class="card">
+                            <div class="card-body shadow">
+                                {% if contact.first.image.url != Null %}
+                                    <img src="{{ contact.first.image.url }}" alt=""
+                                         class="img-fluid rounded mx-auto d-block img-thumbnail">
+                                {% else %}
+                                    <img src="{{ header.first.logo.url }}" alt=""
+                                         class="img-fluid rounded mx-auto d-block img-thumbnail">
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section><!-- End About Lists Section -->
+
+        <!-- ======= Counts Section ======= -->
+        <section class="counts section-bg">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
+                        <div class="count-box">
+                            <i class="icofont-simple-smile" style="color: #20b38e;"></i>
+                            <span data-toggle="counter-up">{{ happy_client }}</span>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="count-box">
+                            <i class="icofont-triangle" style="color: #c042ff;"></i>
+                            <span data-toggle="counter-up">{{ product_count.0.1 }}</span>
+                            <p>{{ product_count.0.0 }}</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="count-box">
+                            <i class="icofont-triangle" style="color: #46d1ff;"></i>
+                            <span data-toggle="counter-up">{{ product_count.1.1 }}</span>
+                            <p>{{ product_count.1.0 }}</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">
+                        <div class="count-box">
+                            <i class="icofont-triangle" style="color: #ffb459;"></i>
+                            <span data-toggle="counter-up">{{ product_count.2.1 }}</span>
+                            <p>{{ product_count.2.0 }}</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section><!-- End Counts Section -->
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Services</h2>
+                </div>
+
+                <div class="row">
+                    {% for service in services %}
+                        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                            <div class="icon"><i class="icofont-workers-group"></i></div>
+                            <h4 class="title">{{ service.title }}</h4>
+                            <p class="description">{{ service.description|linebreaksbr }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+
+        <!-- ======= Festival Greeting ======= -->
+        {% if festival.status == True %}
+            <section id="faq" class="faq section-bg">
+                <div class="container">
+
+                    <div class="section-title">
+                        <h2>{{ festival.first.title }}</h2>
+                    </div>
+
+                    <div class="row  d-flex align-items-stretch">
+
+                        <div class="col-lg-6 faq-item" data-aos="fade-up">
+                            <img src="{{ festival.first.image.url }}" alt="" width="100%" style="opacity:0.7">
+                        </div>
+                        <div class="col-lg-6 faq-item" data-aos="fade-down">
+                            <p>
+                                {{ festival.first.greeting_message|linebreaksbr }}
+                            </p>
+                            <p><em>{{ header.first.company_name }} Family, {% now 'Y' %}</em></p>
+                        </div>
+                    </div>
+
+                </div>
+            </section><!-- End Frequently Asked Questions Section -->
+        {% endif %}
+
+
+        <!-- ======= Our Portfolio Section ======= -->
+
+        <section id="portfolio" class="portfolio section-bg">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-title">
+                    <h2>Products</h2>
+                    <p>Some products and interior photo....</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            {% for category in categories %}
+                                <li data-filter=".{{ category.title }}">{{ category.title }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row portfolio-container">
+                    {% for p in product %}
+                        {% for category in categories %}
+                            {% if p.category.id == category.id %}
+                                <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item {{ category.title }}">
+                                    <div class="portfolio-wrap">
+                                        <img src="{{ p.image.image.url }}" alt="" class="img-responsive"
+                                             width="100%">
+                                        <div class="portfolio-info">
+                                            <h4>{{ p.title }}</h4>
+                                            <p>{{ p.description|truncatewords:6 }}</p>
+                                            <div class="portfolio-links">
+                                                <a href="{{ p.image.image.url }}" data-gall="portfolioGallery"
+                                                   class="venobox" title="{{ p.title }}"><i class="icofont-eye"></i></a>
+                                                {#                                                <p>{{ p.description|linebreaksbr }}</p>#}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+        </section><!-- End Our Portfolio Section -->
+
+
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Clients</h2>
+                    <p>We are pleasure to have your review and feedback on our services.</p>
+                </div>
+
+                <div class="owl-carousel testimonials-carousel">
+                    {% for review in reviews %}
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                {% if review.image.url != Null %}
+                                    <img src="{{ review.image.url }}" class="testimonial-img" alt="">
+                                {% else %}
+                                    <img src="{% static 'img/avatar.png' %}" class="testimonial-img" alt="">
+                                {% endif %}
+                                <h3>{{ review.user }}</h3>
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    {{ review.comment|linebreaksbr }}
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </section><!-- End Testimonials Section -->
+
+
+    </main><!-- End #main -->
+{% endblock %}
+
+
