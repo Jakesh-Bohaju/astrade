@@ -12,7 +12,7 @@ class ReviewForm(forms.ModelForm):
         user = self.cleaned_data.get('user')
         print("From form", user)
 
-        if not user.isalpha() == True or not user == ' ':
+        if not user.isalpha() == True or user == ' ':
             print("validation error")
             raise forms.ValidationError("Enter Name only")
         return user

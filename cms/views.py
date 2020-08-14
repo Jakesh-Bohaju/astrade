@@ -31,6 +31,7 @@ class PageView(BaseView):
             # r_choice = review_choice.objects.get(country_name=country)
             # form.country_id = con.id
             form.save()
+            return redirect('/')
 
         else:
             print(form.errors)
