@@ -1,1 +1,1 @@
-web: gunicorn ShubharambhaDecor.wsgi
+web: gunicorn astrade.wsgi
