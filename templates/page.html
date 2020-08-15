@@ -208,7 +208,7 @@
 
 
                         <!-- Review and Feedback -->
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
                             <h2>Any Review or Feedback?</h2>
                             <form action="" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
@@ -259,13 +259,13 @@
             </section><!-- End Contact Us Section -->
 
             <!-- =======latest gallery ======= -->
-            <div class="section-title">
+            <div class="section-title" data-aos="zoom-in">
                 <h2>Latest Products</h2>
 
                 <div class="slider-container first-sample">
                     <div class="slider">
-                        {% for p in product|slice:":10" %}
-                            <div class="item"><img src="{{ p.image.image.url }}" alt="" height="100%"></div>
+                        {% for p in product|slice:":20" %}
+                            <div class="item"><img src="{{ p.image.image.url }}" alt="" class="img-responsive"></div>
                         {% endfor %}
                     </div>
                 </div>

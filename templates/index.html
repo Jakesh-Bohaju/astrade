@@ -14,9 +14,9 @@
                     <!-- Slide 1 -->
                     {% for banner in banners %}
                         {% if forloop.counter == 1 %}
-                            <div class="carousel-item active" style="background-image: url('{{ banner.image.url }}');">
+                            <div class="carousel-item active img-responsive" style="background-image: url('{{ banner.image.url }}');">
                         {% else %}
-                            <div class="carousel-item" style="background-image: url('{{ banner.image.url }}');">
+                            <div class="carousel-item img-responsive" style="background-image: url('{{ banner.image.url }}');">
                         {% endif %}
                     {#                    <img src="{{ banner.image.url }}" alt="" class="container-fluid">#}
                     <div class="carousel-container">
@@ -108,7 +108,7 @@
                             <p>Happy Clients</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="50">
                         <div class="count-box">
                             <i class="icofont-triangle" style="color: #c042ff;"></i>
                             <span data-toggle="counter-up">{{ product_count.0.1 }}</span>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="100">
                         <div class="count-box">
                             <i class="icofont-triangle" style="color: #46d1ff;"></i>
                             <span data-toggle="counter-up">{{ product_count.1.1 }}</span>
@@ -124,7 +124,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="150">
                         <div class="count-box">
                             <i class="icofont-triangle" style="color: #ffb459;"></i>
                             <span data-toggle="counter-up">{{ product_count.2.1 }}</span>
@@ -188,7 +188,7 @@
         <!-- ======= Our Portfolio Section ======= -->
 
         <section id="portfolio" class="portfolio section-bg">
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container" data-aos="fade-up" data-aos-delay="50">
                 <div class="section-title">
                     <h2>Products</h2>
                     <p>Some products and interior photo....</p>
@@ -198,17 +198,17 @@
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
                             {% for category in categories %}
-                                <li data-filter="{{ category.title }}">{{ category.title }}</li>
+                                <li data-filter=".{{ category.id }}">{{ category.title }}</li>
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
 
                 <div class="row portfolio-container">
-                    {% for p in product|slice:":12" %}
+                    {% for p in product|slice:':12' %}
                         {% for category in categories %}
                             {% if p.category.id == category.id %}
-                                <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item {{ category.title }}">
+                                <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item {{ category.id }}">
                                     <div class="portfolio-wrap">
                                         <img src="{{ p.image.image.url }}" alt="" class="img-responsive"
                                              width="100%">
@@ -223,6 +223,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% else %}
+                                <h3>Error</h3>
                             {% endif %}
                         {% endfor %}
                     {% endfor %}

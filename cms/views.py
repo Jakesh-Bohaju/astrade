@@ -11,8 +11,8 @@ class PageView(BaseView):
     def get(self, request, page_slug):
         self.template_context['page'] = Page.objects.get(slug=page_slug)
         self.template_context['aboutus'] = AboutUs.objects.order_by('-id')
-        galleries = Gallery.objects.all()
-        products = Product.objects.all()
+        galleries = Gallery.objects.order_by('?')
+        products = Product.objects.order_by('?')
         allgallery = []
         for product in products:
             allgallery.append(product)
