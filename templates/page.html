@@ -198,19 +198,18 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div style="width: 100%">
-                                <iframe width="100%" height="385" frameborder="0" scrolling="no" marginheight="0"
-                                        marginwidth="0"
-                                        src="https://maps.google.com/maps?width=100%25&amp;height=385&amp;hl=en&amp;q=+(Shubharambha%20Decor)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-                                <a href="https://www.google.com/maps/place/Shubharambha+Decor/@27.6741751,85.4373887,17z/data=!4m8!1m2!2m1!1sShubharambha+decor!3m4!1s0x39eb0534b13dcfe3:0x7a2badb67d03f205!8m2!3d27.6741751!4d85.4395774">Shubharambha
-                                    Decore near Siddhartha Bank
-                                    Chyamhashing, Bhaktapur</a></div>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1766.696674519692!2d85.43833662303149!3d27.674235076969616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb0534da9dbb2f%3A0xad89f6218d2c2063!2sA%20%26%20S%20TRADE!5e0!3m2!1sen!2sus!4v1597502862413!5m2!1sen!2sus"
+                                        width="100%" height="385" frameborder="0" style="border:0;" allowfullscreen=""
+                                        aria-hidden="false" tabindex="0"></iframe>
+
+                            </div>
 
                         </div>
 
 
                         <!-- Review and Feedback -->
                         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                        <h2>Any Review or Feedback?</h2>
+                            <h2>Any Review or Feedback?</h2>
                             <form action="" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="form-row">
@@ -260,17 +259,17 @@
             </section><!-- End Contact Us Section -->
 
             <!-- =======latest gallery ======= -->
-                    <div class="section-title">
-                        <h2>Latest Products</h2>
+            <div class="section-title">
+                <h2>Latest Products</h2>
 
-                        <div class="slider-container first-sample">
-                            <div class="slider">
-                                {% for p in product %}
-                                    <div class="item"><img src="{{ p.image.image.url }}" alt="" class="img-fluid"></div>
-                                {% endfor %}
-                            </div>
-                        </div>
+                <div class="slider-container first-sample">
+                    <div class="slider">
+                        {% for p in product|slice:":10" %}
+                            <div class="item"><img src="{{ p.image.image.url }}" alt="" height="100%"></div>
+                        {% endfor %}
                     </div>
+                </div>
+            </div>
 
 
         {% endif %}
