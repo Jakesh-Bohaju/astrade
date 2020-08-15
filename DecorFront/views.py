@@ -40,7 +40,7 @@ class BaseView(View):
         'navbar_pages': Page.objects.filter(navbar=True),
         'categories': Category.objects.order_by('title').all(),
         'services': Services.objects.filter(status=True),
-        'product': Product.objects.all(),
+        'product': Product.objects.order_by('?').all(),
         'contact': ContactUs.objects.order_by('-id'),
         'profile': Profile.objects.order_by('-id'),
         'message': suchan

@@ -205,7 +205,7 @@
                 </div>
 
                 <div class="row portfolio-container">
-                    {% for p in product %}
+                    {% for p in product|slice:":12" %}
                         {% for category in categories %}
                             {% if p.category.id == category.id %}
                                 <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item {{ category.title }}">
