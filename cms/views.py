@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -19,6 +20,17 @@ class PageView(BaseView):
         for gallery in galleries:
             allgallery.append(gallery)
         self.template_context['galleries'] = allgallery
+
+        page = request.GET.get('page', 1)
+
+        paginator = Paginator(allgallery, 30)
+        try:
+            gal = paginator.page(page)
+        except PageNotAnInteger:
+            gal = paginator.page(1)
+        except EmptyPage:
+            gal = paginator.page(paginator.num_pages)
+        self.template_context['gal'] = gal
 
         return render(request, 'page.html', self.template_context)
 

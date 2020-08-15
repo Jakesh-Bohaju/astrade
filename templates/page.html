@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="row portfolio-container">
-                        {% for p in galleries %}
+                        {% for p in gal %}
                             {% for category in categories %}
                                 {% if p.category.id == category.id %}
                                     <div class="col-lg-4 col-md-4 col-sm-6 portfolio-item {{ category.title }}">
@@ -70,9 +70,30 @@
                                 {% endif %}
                             {% endfor %}
                         {% endfor %}
-
-
                     </div>
+
+                    {% if gal.has_other_pages %}
+                        <ul class="pagination float-right">
+                            {% if gal.has_previous %}
+                                <li><a href="?page={{ gal.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                                <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in gal.paginator.page_range %}
+                                {% if gal.number == i %}
+                                    <li class="active"><span>{{ i }}|<span class="sr-only">(current)</span></span>
+                                    </li>
+                                {% else %}
+                                    <li><a href="?page={{ i }}">{{ i }}|</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if gal.has_next %}
+                                <li><a href="?page={{ gal.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                                <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
 
                 </div>
             </section><!-- End Our Portfolio Section -->
