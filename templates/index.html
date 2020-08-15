@@ -198,7 +198,7 @@
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
                             {% for category in categories %}
-                                <li data-filter=".{{ category.title }}">{{ category.title }}</li>
+                                <li data-filter="{{ category.title }}">{{ category.title }}</li>
                             {% endfor %}
                         </ul>
                     </div>

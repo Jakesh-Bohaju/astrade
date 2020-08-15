@@ -39,6 +39,6 @@ class PageView(BaseView):
             # return redirect('/menu/contact-us', {'form': form})
 
         # return redirect('index')
-        print(page_slug)
+
 
         return render(request, 'page.html', {'form': form, 'page': Page.objects.get(slug=page_slug)})
