@@ -266,7 +266,3 @@ $(".testimonials-carousel").owlCarousel({
         }
     }
 });
-
-
-
-

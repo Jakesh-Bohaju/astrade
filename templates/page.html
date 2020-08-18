@@ -279,19 +279,6 @@
                 </div>
             </section><!-- End Contact Us Section -->
 
-            <!-- =======latest gallery ======= -->
-            <div class="section-title" data-aos="zoom-in">
-                <h2>Latest Products</h2>
-
-                <div class="slider-container first-sample">
-                    <div class="slider">
-                        {% for p in product|slice:":20" %}
-                            <div class="item"><img src="{{ p.image.image.url }}" alt="" class="img-responsive"></div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
 
         {% endif %}
 

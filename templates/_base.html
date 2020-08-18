@@ -54,11 +54,9 @@
 
 
         </div>
-        <div class="float-right text-success">
-            <JavaBlink><b>{{ message }}</b></JavaBlink>
-            <span id="timeNow">time and date</span>
-        </div>
-
+{#        <div class="float-right text-success">#}
+{#            <JavaBlink><b>{{ message }}</b></JavaBlink>#}
+{#        </div>#}
 
         <div class="social-links float-right">
             {% if  contact.first.facebook_page_link != Null %}
@@ -200,6 +198,7 @@
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 <!-- Vendor JS Files -->
+
 <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
@@ -214,8 +213,8 @@
 
 <!-- Template Main JS File -->
 <script src="{% static 'js/main.js' %}"></script>
-<script src="{% static 'js/blue-slider.js' %}"></script>
-<script src="{% static 'js/multislider.js' %}"></script>
+
+
 
 <SCRIPT type="text/javascript">
     function JavaBlink() {
@@ -232,13 +231,6 @@
     else if (window.attachEvent) window.attachEvent("onload", JavaBlink);
     else window.onload = JavaBlink;
 </SCRIPT>
-
-<script>
-    var elem = document.getElementById("timeNow")
-    var now = new Date();
-    var options = {format: 'DMY', weekday: 'long', year: 'numeric', month: 'long', day: '2-digit'};
-    elem.innerHTML = now.toLocaleString('en-au', options);
-</script>
 
 </body>
 
